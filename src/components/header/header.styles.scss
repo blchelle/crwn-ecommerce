@@ -1,27 +1,28 @@
 .header {
-  height: 70px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
+	height: 70px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 25px;
+	text-transform: uppercase;
 
-  .logo-container {
-    height: 100%;
-    width: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+	.logo-container {
+		height: 100%;
+		width: 70px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-  .options {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+	.options {
+		width: 50%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
 
-    .option {
-      padding: 10px 15px;
-    }
-  }
+		.option {
+			padding: 10px 15px;
+		}
+	}
 }
