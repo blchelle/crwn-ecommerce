@@ -1,9 +1,6 @@
 .sign-up {
- display: flex; 
- flex-direction: column;
- width: 380px;
-
- .title {
-   margin: 10px 0
- }
+  width: 420px;
+  display: flex; 
+  flex-direction: column;
+  padding: 20px;
 }

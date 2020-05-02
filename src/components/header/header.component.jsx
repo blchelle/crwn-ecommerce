@@ -1,12 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { auth } from '../../firebase/firebase.utils';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import './header.styles.scss';
 
-const Header = ({ isSignedIn }) => (
+
+const Header = ({ currentUser }) => (
 	<div className="header">
 		<Link className="logo-container" to="/">
 			<Logo className="logo" />
@@ -18,7 +21,7 @@ const Header = ({ isSignedIn }) => (
 			<Link className="option" to="/shop">
 				Contact
 			</Link>
-			{isSignedIn ? (
+			{currentUser ? (
 				<Link className="option" to="/" onClick={() => auth.signOut()}>
 					Sign Out
 				</Link>
@@ -31,8 +34,20 @@ const Header = ({ isSignedIn }) => (
 	</div>
 );
 
-Header.propTypes = {
-	isSignedIn: PropTypes.bool.isRequired,
+Header.defaultProps = {
+	currentUser: null,
 };
 
-export default Header;
+Header.propTypes = {
+	currentUser: PropTypes.shape({
+		displayName: PropTypes.string,
+		email: PropTypes.string,
+		createdAt: PropTypes.instanceOf(Date),
+	}),
+};
+
+const mapStateToProps = (state) => ({
+	currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Header);

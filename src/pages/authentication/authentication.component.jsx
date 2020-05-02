@@ -5,7 +5,7 @@ import SignUp from '../../components/sign-up/sign-up.component';
 
 import './authentication.styles.scss';
 
-export const AuthenticationPage = () => (
+const AuthenticationPage = () => (
 	<div className="authentication">
 		<SignIn />
 		<SignUp />

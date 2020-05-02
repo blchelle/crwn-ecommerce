@@ -12,6 +12,10 @@
 	text-transform: none;
 	text-decoration: none;
 
+	&:focus {
+		transform: scale(1.01);
+	}
+
 	&:hover {
 		cursor: pointer;
 
