@@ -3,7 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './custom-button.styles.scss';
 
-const CustomButton = ({ children, isGoogleSignIn, type, handleClick }) => (
+const CustomButton = ({
+	children, isGoogleSignIn, type, handleClick,
+}) => (
 	<button
 		className={`custom-button ${isGoogleSignIn ? 'google-sign-in' : ''}`}
 		type={type}
