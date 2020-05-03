@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import './custom-button.styles.scss';
 
 const CustomButton = ({
-	children, isGoogleSignIn, type, handleClick,
+	children, isGoogleSignIn, inverted, type, handleClick,
 }) => (
 	<button
-		className={`custom-button ${isGoogleSignIn ? 'google-sign-in' : ''}`}
+		className={`custom-button ${inverted ? 'inverted' : ''} ${isGoogleSignIn ? 'google-sign-in' : ''}`}
 		type={type}
 		onClick={handleClick}
 	>
