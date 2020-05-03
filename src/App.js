@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import { setCurrentUserAction } from './redux/user/user.actions';
+import setCurrentUserAction from './redux/user/user.actions';
 
 import Header from './components/header/header.component';
 import HomePage from './pages/home/home.component';
@@ -20,7 +20,6 @@ class App extends React.Component {
 
 	componentDidMount() {
 		const { setCurrentUser } = this.props;
-		console.log(setCurrentUser);
 
 		this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
 			if (userAuth) {
