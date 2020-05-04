@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toggleCartHiddenAction } from '../../redux/cart/cart.actions';
+import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
 
 import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
 
@@ -19,8 +20,8 @@ CartIcon.propTypes = {
 	toggleCartHidden: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ cart: { items } }) => ({
-	numItems: items.reduce((count, item) => count + item.quantity, 0),
+const mapStateToProps = (state) => ({
+	numItems: selectCartItemsCount(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
