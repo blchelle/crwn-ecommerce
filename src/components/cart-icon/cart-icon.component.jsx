@@ -20,7 +20,7 @@ CartIcon.propTypes = {
 };
 
 const mapStateToProps = ({ cart: { items } }) => ({
-	numItems: items.length,
+	numItems: items.reduce((count, item) => count + item.quantity, 0),
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,0 +1,48 @@
+.cart-item {
+	height: 100px;
+	width: 100%;
+	display: grid;
+	column-gap: 10px;
+	grid-template-columns: 2fr 3fr;
+	grid-template-rows: 45px 45px;
+	justify-items: flex-start;
+
+	&:not(:last-child) {
+		margin-bottom: 5px;
+	}
+
+	.image {
+		width: 100%;
+		grid-column: 1 / 2;
+		grid-row: 1 / -1;
+    background-size: cover;
+    background-position: center;
+	}
+
+	.name {
+		align-self: flex-end;
+	}
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 8px;
+	border-radius: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
