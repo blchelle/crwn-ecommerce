@@ -23,4 +23,19 @@ export const addItemToCart = (existingItems, newItem) => {
 	return [...existingItems, { ...newItem, quantity: 1 }];
 };
 
-export const a = 5;
+/**
+ * Upadates the quantity of a specified cart item
+ * @param {object} existingItems All the items currently in the cart
+ * @param {number} quantity The new quantity of the item with 'id'
+ * @param {number} id The id of the item whose quantity we are changing
+ */
+export const changeItemQuantity = (existingItems, quantity, id) => (
+	// Find the matching item
+	existingItems.map((item) => {
+		if (item.id === id && quantity > 0) {
+			return { ...item, quantity };
+		}
+
+		return item;
+	})
+);
