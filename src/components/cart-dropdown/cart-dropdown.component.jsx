@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
-
 import CartItem from '../cart-item/cart-item.component';
 import CustomButton from '../custom-button/custom-button.component';
-
 import './cart-dropdown.styles.scss';
 
 const CartDropdown = ({ items }) => (
 	<div className="cart-dropdown">
 		{items.length === 0
-			? <p className="no-items-text">You currently have no items in the cart</p> : (
+			? <p>You currently have no items in the cart</p> : (
 				<div className="cart-items">
 					{
 						items.map((item) => <CartItem key={items.id} item={item} />)
@@ -45,8 +44,8 @@ CartDropdown.propTypes = {
 	}).isRequired),
 };
 
-const mapStateToProps = (state) => ({
-	items: selectCartItems(state),
+const mapStateToProps = createStructuredSelector({
+	items: selectCartItems,
 });
 
 export default connect(mapStateToProps)(CartDropdown);

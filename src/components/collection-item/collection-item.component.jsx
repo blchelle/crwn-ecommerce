@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addItemToCartAction } from '../../redux/cart/cart.actions';
-
 import CustomButton from '../custom-button/custom-button.component';
-
 import './collection-item.styles.scss';
 
 const CollectionItem = ({ item, addItemToCart }) => {

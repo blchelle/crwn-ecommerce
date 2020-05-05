@@ -1,14 +1,18 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import setCurrentUserAction from './redux/user/user.actions';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
+import setCurrentUserAction from './redux/user/user.actions';
+import { selectCurrentUser } from './redux/user/user.selector';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+
+import AuthenticationPage from './pages/authentication/authentication.component';
 import Header from './components/header/header.component';
 import HomePage from './pages/home/home.component';
 import ShopPage from './pages/shop/shop.component';
-import AuthenticationPage from './pages/authentication/authentication.component';
 
 import './App.css';
 
@@ -79,8 +83,8 @@ App.propTypes = {
 	setCurrentUser: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ user }) => ({
-	currentUser: user.currentUser,
+const mapStateToProps = createStructuredSelector({
+	currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({

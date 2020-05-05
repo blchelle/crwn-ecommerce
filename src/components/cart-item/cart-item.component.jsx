@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import './cart-item.styles.scss';
 
 const CartItem = ({
