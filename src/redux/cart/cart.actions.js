@@ -4,9 +4,9 @@ export const toggleCartHiddenAction = () => ({
 	type: CartActionTypes.TOGGLE_CART_HIDDEN,
 });
 
-export const changeItemQuantityAction = (quantity, id) => ({
-	type: CartActionTypes.CHANGE_ITEM_QUANTITY,
-	payload: { quantity, id },
+export const decrementItemQuantityAction = (item) => ({
+	type: CartActionTypes.DECREMENT_ITEM_QUANTITY,
+	payload: item,
 });
 
 export const addItemToCartAction = (item) => ({
@@ -14,7 +14,7 @@ export const addItemToCartAction = (item) => ({
 	payload: item,
 });
 
-export const removeItemFromCartAction = (id) => ({
+export const removeItemFromCartAction = (item) => ({
 	type: CartActionTypes.REMOVE_ITEM,
-	payload: { id },
+	payload: item,
 });

@@ -24,18 +24,14 @@ export const addItemToCart = (existingItems, newItem) => {
 };
 
 /**
- * Upadates the quantity of a specified cart item
- * @param {object} existingItems All the items currently in the cart
- * @param {number} quantity The new quantity of the item with 'id'
- * @param {number} id The id of the item whose quantity we are changing
+ * Decrement the quantity of the cart item
+ * @param {object[]} cartItems All the items currently in the cart
+ * @param {object} itemToDecrement The item whose quantity we will decrement
  */
-export const changeItemQuantity = (existingItems, quantity, id) => (
-	// Find the matching item
-	existingItems.map((item) => {
-		if (item.id === id && quantity > 0) {
-			return { ...item, quantity };
-		}
+export const decrementItemQuantity = (cartItems, itemToDecrement) => cartItems.map((item) => {
+	if (item.id === itemToDecrement.id && itemToDecrement.quantity > 1) {
+		return { ...itemToDecrement, quantity: itemToDecrement.quantity - 1 };
+	}
 
-		return item;
-	})
-);
+	return item;
+});

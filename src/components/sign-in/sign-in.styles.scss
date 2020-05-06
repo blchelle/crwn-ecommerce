@@ -1,11 +1,21 @@
 .sign-in {
-	width: 420px;
+	width: 600px;
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
 	
+	.sign-in-form {
+		margin-top: 30px;
+		display: flex;
+		flex-direction: column;
+	}
+
 	.buttons {
 		display: flex;
-		justify-content: space-between;
+		justify-content: start;
+
+		.custom-button:not(:last-child) {
+			margin-right: 20px;
+		}
 	}
 }

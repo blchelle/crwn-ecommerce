@@ -29,7 +29,6 @@ class SignUp extends React.Component {
 		} = this.state;
 
 		if (password !== confirmPassword) {
-			// TODO: Add some better ui for error handling
 			alert('passwords do not match');
 			return;
 		}
@@ -44,7 +43,6 @@ class SignUp extends React.Component {
 				confirmPassword: '',
 			});
 		} catch (error) {
-			// TODO: Add UI for error handling
 			alert(error);
 		}
 	}

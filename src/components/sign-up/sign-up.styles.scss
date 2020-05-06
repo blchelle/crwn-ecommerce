@@ -1,6 +1,17 @@
 .sign-up {
-  width: 420px;
+  width: 600px;
   display: flex; 
   flex-direction: column;
   padding: 20px;
+
+  .sign-up-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .custom-button {
+      align-self: flex-start;
+    }
+  }
 }
