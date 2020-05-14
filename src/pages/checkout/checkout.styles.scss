@@ -24,9 +24,14 @@
 
   .total-price {
     align-self: flex-end;
+    margin-bottom: 50px;
   }
 
   .hint-text {
-    color: #dd1111;
+    color: #d8000c;
+  }
+  
+  .stripe-checkout-button {
+    align-self: flex-end;
   }
 }
