@@ -1,9 +1,9 @@
 .collection-item {
-  width: 23%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  height: 500px;
   align-items: center;
+  justify-content: space-between;
   position: relative;
 
   &:hover {

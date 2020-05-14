@@ -12,7 +12,7 @@
 
 	.buttons {
 		display: flex;
-		justify-content: start;
+		justify-content: flex-start;
 
 		.custom-button:not(:last-child) {
 			margin-right: 20px;
