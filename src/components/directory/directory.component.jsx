@@ -27,7 +27,7 @@ const Directory = ({ sections }) => (
 Directory.propTypes = {
 	sections: PropTypes.arrayOf(PropTypes.shape({
 		title: PropTypes.string.isRequired,
-		imageUrl: PropTypes.number.isRequired,
+		imageUrl: PropTypes.string.isRequired,
 		size: PropTypes.string,
 		linkUrl: PropTypes.string.isRequired,
 	}).isRequired).isRequired,

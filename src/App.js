@@ -7,7 +7,9 @@ import { createStructuredSelector } from 'reselect';
 
 import setCurrentUserAction from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selector';
+import { selectShopCollectionsForPreview } from './redux/shop/shop.selectors';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+
 
 import AuthenticationPage from './pages/authentication/authentication.component';
 import Header from './components/header/header.component';
@@ -87,6 +89,7 @@ App.propTypes = {
 
 const mapStateToProps = createStructuredSelector({
 	currentUser: selectCurrentUser,
+	collectionsArray: selectShopCollectionsForPreview,
 });
 
 const mapDispatchToProps = (dispatch) => ({

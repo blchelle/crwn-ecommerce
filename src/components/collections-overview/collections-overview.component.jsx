@@ -19,7 +19,7 @@ const CollectionsOverview = ({ collections }) => (
 CollectionsOverview.propTypes = {
 	collections: PropTypes.arrayOf(
 		PropTypes.shape({
-			id: PropTypes.number.isRequired,
+			id: PropTypes.string.isRequired,
 			title: PropTypes.string.isRequired,
 			routeName: PropTypes.string.isRequired,
 			items: PropTypes.arrayOf(

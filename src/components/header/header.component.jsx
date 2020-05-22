@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
@@ -11,7 +10,7 @@ import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
 import {
-	HeaderContainer, LogoContainer, OptionDiv, OptionLink, OptionsContainer,
+	HeaderContainer, LogoContainer, OptionLink, OptionsContainer,
 } from './header.styles';
 
 const Header = ({ currentUser, hidden }) => (
