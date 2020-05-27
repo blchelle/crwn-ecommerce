@@ -2,6 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { selectShopCollection } from '../../redux/shop/shop.selectors';
 import CollectionItem from '../../components/collection-item/collection-item.component';
@@ -38,4 +39,4 @@ const mapStateToProps = (state, { match: { params: { collectionId } } }) => ({
 	collection: selectShopCollection(collectionId)(state),
 });
 
-export default connect(mapStateToProps)(CollectionPage);
+export default withRouter(connect(mapStateToProps)(CollectionPage));
