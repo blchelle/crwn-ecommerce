@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { SpinnerContainer, SpinnerOverlay } from './with-spinner.styles';
 
 const WithSpinner = (WrappedComponent) => {
-	const Spinner = ({ isLoading, ...otherProps }) => (isLoading ? (
+	const Spinner = ({ isLoading }) => (isLoading ? (
 		<SpinnerOverlay>
 			<SpinnerContainer />
 		</SpinnerOverlay>
 	) : (
-		<WrappedComponent {...otherProps} />
+		<WrappedComponent />
 	));
 
 	return Spinner;
