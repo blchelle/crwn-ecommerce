@@ -26,7 +26,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 	const { uid } = userAuth;
 
 	// Get a snapshot of the users data
-	// const userRef = firestore.doc(`users/${uid}`);
+	// const userRef = firestpore.doc(`users/${uid}`);
 	const userRef = firestore.doc(`users/${uid}`);
 	const snapshot = await userRef.get();
 
@@ -67,12 +67,11 @@ export const convertCollectionSnapshotToMap = (collections) => {
 	}, {});
 };
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: 'select_account' });
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' });
 
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 export default firebase;
-
 
 // One time use function for automating low frequency writes to firestore
 // export const addCollectionAndItems = async (collectionKey, objectsToAdd) => {

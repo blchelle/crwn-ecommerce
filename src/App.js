@@ -5,7 +5,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import setCurrentUserAction from './redux/user/user.actions';
+import { setCurrentUserAction } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selector';
 import { selectShopCollectionsForPreview } from './redux/shop/shop.selectors';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
