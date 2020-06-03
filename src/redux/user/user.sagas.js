@@ -93,13 +93,12 @@ export function* onSignUpSuccess() {
 }
 
 export function* userSagas() {
-	yield all(
-		[call(onGoogleSignInStart),
-			call(onEmailSignInStart),
-			call(onCheckUserSession),
-			call(onSignOutStart),
-			call(onSignUpStart),
-			call(onSignUpSuccess),
-		],
-	);
+	yield all([
+		call(onGoogleSignInStart),
+		call(onEmailSignInStart),
+		call(onCheckUserSession),
+		call(onSignOutStart),
+		call(onSignUpStart),
+		call(onSignUpSuccess),
+	]);
 }

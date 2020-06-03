@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter, Link } from 'react-router-dom';
+import ReactRouterPropTypes from 'react-router-prop-types';
 import CollectionItem from '../collection-item/collection-item.component';
 import './collection-preview.styles.scss';
 
-const CollectionPreview = ({ title, items }) => (
+
+const CollectionPreview = ({ match, title, items }) => (
 	<div className="collection-preview">
-		<h1 className="title">
+		<Link className="title" to={`${match.url}/${title.toLowerCase()}`}>
 			{title}
-		</h1>
+		</Link>
 		<div className="preview">
 			{items.filter((item, index) => index < 4)
 				.map((item) => (<CollectionItem key={item.id} item={item} />))}
@@ -16,8 +19,9 @@ const CollectionPreview = ({ title, items }) => (
 );
 
 CollectionPreview.propTypes = {
+	match: ReactRouterPropTypes.match.isRequired,
 	title: PropTypes.string.isRequired,
 	items: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default CollectionPreview;
+export default withRouter(CollectionPreview);

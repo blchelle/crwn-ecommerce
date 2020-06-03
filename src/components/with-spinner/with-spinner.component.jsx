@@ -3,16 +3,13 @@ import PropTypes from 'prop-types';
 import { SpinnerContainer, SpinnerOverlay } from './with-spinner.styles';
 
 const WithSpinner = (WrappedComponent) => {
-	const Spinner = ({ isLoading, isLoaded }) => {
-		console.log(isLoading, isLoaded);
-		return (isLoading || !isLoaded ? (
-			<SpinnerOverlay>
-				<SpinnerContainer />
-			</SpinnerOverlay>
-		) : (
-			<WrappedComponent />
-		));
-	};
+	const Spinner = ({ isLoading, isLoaded }) => (isLoading || !isLoaded ? (
+		<SpinnerOverlay>
+			<SpinnerContainer />
+		</SpinnerOverlay>
+	) : (
+		<WrappedComponent />
+	));
 
 	Spinner.propTypes = {
 		isLoading: PropTypes.bool.isRequired,

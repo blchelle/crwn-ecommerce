@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
+import { firestore } from '../../firebase/firebase.utils';
 import { selectShopCollection } from '../../redux/shop/shop.selectors';
 import CollectionItem from '../../components/collection-item/collection-item.component';
 import './collection.styles.scss';
 
-const CollectionPage = ({ collection, match }) => (
-	<div className="collection">
-		<h2 className="title">{match.params.collectionId}</h2>
-		{
-			collection.items.map((item) => <CollectionItem key={item.id} item={item} />)
-		}
-	</div>
-);
+const CollectionPage = ({ collection, match }) => {
+	useEffect(() => {
+		const unsubscribeFromCollections = firestore.collection('collections').onSnapshot((snapshot) => console.log(snapshot));
+		return () => {
+			unsubscribeFromCollections();
+		};
+	}, []);
+
+	return (
+		<div className="collection">
+			<h2 className="title">{match.params.collectionId}</h2>
+			{
+				collection.items.map((item) => <CollectionItem key={item.id} item={item} />)
+			}
+		</div>
+	);
+};
 
 
 CollectionPage.propTypes = {
