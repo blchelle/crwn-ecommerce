@@ -5,11 +5,9 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { setCurrentUserAction } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selector';
 import { selectShopCollectionsForPreview } from './redux/shop/shop.selectors';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-
+import { checkUserSessionAction } from './redux/user/user.actions';
 
 import AuthenticationPage from './pages/authentication/authentication.component';
 import Header from './components/header/header.component';
@@ -26,27 +24,8 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		const { setCurrentUser } = this.props;
-
-		this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-			if (userAuth) {
-				const userRef = await createUserProfileDocument(userAuth);
-
-				userRef.onSnapshot((snapshot) => {
-					const data = snapshot.data();
-					const { displayName, email, createdAt } = data;
-
-					setCurrentUser({
-						id: snapshot.id,
-						createdAt: createdAt.toDate(),
-						displayName,
-						email,
-					});
-				});
-			} else {
-				setCurrentUser(null);
-			}
-		});
+		const { checkUserSession } = this.props;
+		checkUserSession();
 	}
 
 	componentWillUnmount() {
@@ -84,7 +63,7 @@ App.propTypes = {
 		email: PropTypes.string,
 		createdAt: PropTypes.instanceOf(Date),
 	}),
-	setCurrentUser: PropTypes.func.isRequired,
+	checkUserSession: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -93,7 +72,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	setCurrentUser: (user) => dispatch(setCurrentUserAction(user)),
+	checkUserSession: () => dispatch(checkUserSessionAction()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

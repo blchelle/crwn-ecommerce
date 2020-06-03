@@ -73,6 +73,14 @@ googleProvider.setCustomParameters({ prompt: 'select_account' });
 export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 export default firebase;
 
+export const getCurrentUser = () => new Promise((resolve, reject) => {
+	const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+		unsubscribe();
+		resolve(userAuth);
+	}, reject);
+});
+
+
 // One time use function for automating low frequency writes to firestore
 // export const addCollectionAndItems = async (collectionKey, objectsToAdd) => {
 // 	const collectionRef = firestore.collection(collectionKey);
