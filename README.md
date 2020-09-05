@@ -1,6 +1,9 @@
 # CRWN E-Commerce 👑
 CRWN E-commerce is an e-commerce website for a fictional clothing company
 
+## Live Site
+https://crwn-clothing-brock-chelle.herokuapp.com/
+
 ## Note 📝
 This projects was completed as a final project for the course "Complete React Developer in 2020 (w/ Redux, Hooks, GraphQL)" available on Udemy. I enrolled in this course to learn React and other complementary technologies. This project was an excellent way to solidify my understanding of the course material
 
