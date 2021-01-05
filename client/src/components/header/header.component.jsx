@@ -1,17 +1,20 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import PropTypes from 'prop-types';
-import { selectCartHidden } from '../../redux/cart/cart.selectors';
-import { selectCurrentUser } from '../../redux/user/user.selector';
-import { signOutStartAction } from '../../redux/user/user.actions';
-import { ReactComponent as Logo } from '../../assets/crown.svg';
-import CartIcon from '../cart-icon/cart-icon.component';
-import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import PropTypes from "prop-types";
+import { selectCartHidden } from "../../redux/cart/cart.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selector";
+import { signOutStartAction } from "../../redux/user/user.actions";
+import { ReactComponent as Logo } from "../../assets/crown.svg";
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 import {
-	HeaderContainer, LogoContainer, OptionLink, OptionsContainer,
-} from './header.styles';
+	HeaderContainer,
+	LogoContainer,
+	OptionLink,
+	OptionsContainer,
+} from "./header.styles";
 
 const Header = ({ currentUser, hidden, signOutStart }) => (
 	<HeaderContainer>
@@ -19,25 +22,17 @@ const Header = ({ currentUser, hidden, signOutStart }) => (
 			<Logo className="logo" />
 		</LogoContainer>
 		<OptionsContainer>
-			<OptionLink to="/shop">
-				Shop
-			</OptionLink>
-			<OptionLink to="/shop">
-				Contact
-			</OptionLink>
+			<OptionLink to="/shop">Shop</OptionLink>
 			{currentUser ? (
 				<OptionLink to="/" onClick={signOutStart}>
 					Sign Out
 				</OptionLink>
 			) : (
-				<OptionLink to="/authentication">
-					Sign in
-				</OptionLink>
+				<OptionLink to="/authentication">Sign in</OptionLink>
 			)}
 			<CartIcon />
 		</OptionsContainer>
-		{ hidden ? null
-			: <CartDropdown />}
+		{hidden ? null : <CartDropdown />}
 	</HeaderContainer>
 );
 
