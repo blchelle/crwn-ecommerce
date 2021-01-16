@@ -1,63 +1,60 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 
-import './checkout.styles.scss';
-import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors';
-import CheckoutItem from '../../components/checkout-item/checkout-item.component';
-import StripeCheckoutButton from '../../components/stripe-checkout-button/stripe-checkout-button.component';
+import './checkout.styles.scss'
+import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors'
+import CheckoutItem from '../../components/checkout-item/checkout-item.component'
+import StripeCheckoutButton from '../../components/stripe-checkout-button/stripe-checkout-button.component'
 
 const CheckoutPage = ({ items, total }) => (
-	<div className="checkout-page">
-		<table className="checkout-table">
+	<div className='checkout-page'>
+		<table className='checkout-table'>
 			<thead>
 				<tr>
 					<th>Product</th>
-					<th>Description</th>
 					<th>Quantity</th>
 					<th>Price</th>
 					<th>Remove</th>
 				</tr>
 			</thead>
 			<tbody>
-				{
-					items.map((item) => (
-						<CheckoutItem key={item.id} item={item} />
-					))
-				}
+				{items.map((item) => (
+					<CheckoutItem key={item.id} item={item} />
+				))}
 			</tbody>
 		</table>
-		<h2 className="total-price">
-			{`Total: $${total}`}
-		</h2>
-		<span className="hint-text">*Please use the following test credit card for payments*</span>
-		<span className="hint-text">4242 4242 4242 4242 &mdash; Exp: Any future date &mdash; CVC: Any 3 digits</span>
+		<h2 className='total-price'>{`Total: $${total}`}</h2>
+		<span className='hint-text'>*Please use the following test credit card for payments*</span>
+		<span className='hint-text'>
+			4242 4242 4242 4242 &mdash; Exp: Any future date &mdash; CVC: Any 3 digits
+		</span>
 		<StripeCheckoutButton price={total} />
 	</div>
-);
+)
 
 CheckoutPage.defaultProps = {
 	items: [],
-};
+}
 
 CheckoutPage.propTypes = {
-	items: PropTypes.arrayOf(PropTypes.shape({
-		imageUrl: PropTypes.string.isRequired,
-		name: PropTypes.string.isRequired,
-		quantity: PropTypes.number.isRequired,
-		price: PropTypes.number.isRequired,
-		id: PropTypes.number.isRequired,
-	}).isRequired),
+	items: PropTypes.arrayOf(
+		PropTypes.shape({
+			imageUrl: PropTypes.string.isRequired,
+			name: PropTypes.string.isRequired,
+			quantity: PropTypes.number.isRequired,
+			price: PropTypes.number.isRequired,
+			id: PropTypes.number.isRequired,
+		}).isRequired
+	),
 	total: PropTypes.number.isRequired,
-};
+}
 
-const mapStateToProps = createStructuredSelector(
-	{
-		items: selectCartItems,
-		total: selectCartTotal,
-	},
-);
+const mapStateToProps = createStructuredSelector({
+	items: selectCartItems,
+	total: selectCartTotal,
+})
 
-export default connect(mapStateToProps)(CheckoutPage);
+export default connect(mapStateToProps)(CheckoutPage)

@@ -1,9 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const HomePageContainer = styled.div`
-  display: flex;
+	display: flex;
 	flex-direction: column;
 	align-items: center;
-`;
-
-export const a = 5;
+`

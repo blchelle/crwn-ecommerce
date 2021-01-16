@@ -1,17 +1,12 @@
 .sign-up {
-  width: 600px;
-  display: flex; 
-  flex-direction: column;
-  padding: 20px;
+	width: Min(600px, 100%);
+	display: flex;
+	flex-direction: column;
 
-  .sign-up-form {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    .custom-button {
-      align-self: flex-start;
-    }
-  }
+	.sign-up-form {
+		margin-top: 30px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
 }
